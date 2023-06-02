@@ -1,14 +1,11 @@
 package org.example;
-
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 import java.util.List;
-
 public class Window extends JFrame {
     public Window () {
         this.setBounds(0,0,Constants.WINDOW_SIZE,Constants.WINDOW_SIZE);
@@ -18,7 +15,6 @@ public class Window extends JFrame {
         this.setLayout(null);
         this.getContentPane().setBackground(new Color(62, 189, 185, 255));
         this.setLocationRelativeTo(null);
-
 
         JLabel ipLabel = new JLabel("Write your IP address or domain");
         ipLabel.setBounds((Constants.WINDOW_SIZE-Constants.LABEL_WIDTH)/2, (Constants.WINDOW_SIZE-2*(Constants.LABEL_HEIGHT+Constants.TEXT_FIELD_HEIGHT+Constants.MARGIN_TOP))/2-Constants.LABEL_HEIGHT/2, Constants.LABEL_WIDTH, Constants.LABEL_HEIGHT);
@@ -77,10 +73,7 @@ public class Window extends JFrame {
             resultLabel.setBounds((Constants.WINDOW_SIZE-resultLabelWidth)/2, searchTextField.getY() + Constants.LABEL_HEIGHT + Constants.MARGIN_TOP, resultLabelWidth, Constants.LABEL_HEIGHT);
             resultLabel.setVisible(true);
         });
-
         this.setVisible(true);
-
-
     }
 
     private boolean isValidIPAddress (String ip) {
@@ -130,5 +123,4 @@ public class Window extends JFrame {
         }
         return isValid;
     }
-
 }

@@ -1,7 +1,5 @@
 package org.example;
-
 public class Constants {
-
     public static final int WINDOW_SIZE = 500;
     public static final int TEXT_FIELD_WIDTH = 200;
     public static final int TEXT_FIELD_HEIGHT = 30;
@@ -20,9 +18,4 @@ public class Constants {
     public static final int CORRECT_IP_PARTS = 4;
     public static final int MINIMUM_DOMAIN_PARTS = 2;
     public static final int MAXIMUM_DOMAIN_PART_LENGTH = 63;
-
-
-
-
-
 }
