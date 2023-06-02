@@ -54,18 +54,15 @@ public class Window extends JFrame {
                 try {
                     Document document = Jsoup.connect(url).get();
                     List<Element> elements = document.getElementsByClass("row");
-                    int i = 0;
-                    boolean hasFound = false;
-                    while (i<elements.get(Constants.DATA_ROW_INDEX).children().size()) {
-                        if (elements.get(Constants.DATA_ROW_INDEX).children().get(i).text().trim().equals("Country")) {
-                            i++;
-                            hasFound = true;
-                            break;
-                        }
-                        i++;
-                    }
-                    if (hasFound) {
-                        output = "Your country is " + elements.get(Constants.DATA_ROW_INDEX).children().get(i).text().trim();
+
+                    Element child = elements.get(Constants.DATA_ROW_INDEX).children()
+                            .stream()
+                            .filter(c -> c.text().trim().equals("Country"))
+                            .findFirst()
+                            .map(Element::nextElementSibling).orElse(null);
+
+                    if (child != null) {
+                        output = "Your country is " + child.text().trim();
                     } else {
                         output = "The input doesn't exist";
                     }
